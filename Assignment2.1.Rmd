@@ -1,0 +1,55 @@
+---
+title: "Assignment 2.1"
+subtitle: "CPSC 292 Section -- (Waldrop)"
+author: "Borey Kong"
+date: "10/05/2022"
+output: html_notebook
+---
+
+## Assignment 2.1
+
+```{r, include=TRUE}
+# Loading required libraries
+
+```
+
+### Question 1
+
+*Load the pressure data set. Make a plot of vapor pressure in mmHg versus temperature in C of mercury. Set the axis labels and title. Make the same plot using a different method (either with or without a formula).*
+
+Plot without a formula: 
+```{r, include=TRUE}
+data("pressure")
+pressure
+pressure.temperature <- c(pressure$temperature)
+pressure.pressure <- c(pressure$pressure)
+plot(pressure.temperature,pressure.pressure,
+     ylab = "Vapor Pressure (mmHg)",
+     xlab = "Temperature in C of mercury",
+     main = "Vapor Pressure versus Temperature")
+
+```
+
+Plot with a formula: 
+```{r, include=TRUE}
+plot(pressure ~ temperature, data=pressure,
+     ylab = "Vapor Pressure",
+     xlab= "Temperature",
+     main= "Vapor Pressure versus Temperature 2")
+
+```
+
+
+### Question 2
+
+*Load the dataset Loblolly. Make a plot of height versus age of trees where data are triangle-shaped points. Color the points according to the seed number.*
+
+```{r, include=TRUE}
+data("Loblolly")
+seedcolors <- c("red","orange","yellow","green","blue","purple","pink","brown","black","white")
+
+plot(height ~ age, data=Loblolly,
+     ylab= "Height", xlab= "Age",
+     col= seedcolors[Loblolly$Seed],
+     pch= rep(24,10)[Loblolly$Seed])
+```
