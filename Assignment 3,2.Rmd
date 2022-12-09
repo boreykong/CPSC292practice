@@ -1,0 +1,84 @@
+---
+title: "Assignment 3.2"
+subtitle: "CPSC 292 Section -- (Waldrop)"
+author: "Borey Kong"
+date: "10/28/2022"
+output: html_notebook
+---
+
+## Assignment 3.2 
+
+```{r, include=TRUE}
+# Loading required libraries
+
+```
+
+### Question 1
+
+*Complete the following steps:*
+
+ a. *Generate 10 random, whole numbers using `sample()` and store them in a vector named `hop`.*
+
+```{r, include=TRUE}
+hop <- sample(c(1:100), size= 10, replace=T)
+```
+ 
+ b.  *Create a function that will take a single number \verb+x+ and return the results of the following calculation: $2x^2 -3x +12$*
+
+```{r, include=TRUE}
+questionb <- function(x) { 
+  a <- (2*x^2) - (3*x) + 12
+  return(a)
+}
+
+questionb(5)
+```
+
+ c. *Use your function to calculate the result of each element of `hop` individually. Store the result in a new vector called `hop.up1`.  Note: you must do this to each of the ten elements individually. Hint: create `hop.up1` first as a vector of `NA`'s. *
+ 
+```{r, include=TRUE}
+hop.up1 <- rep(NA, length = 10)
+
+hop.up1 <- c(
+  questionb(hop[1]),
+  questionb(hop[2]),
+  questionb(hop[3]),
+  questionb(hop[4]),
+  questionb(hop[5]),
+  questionb(hop[6]),
+  questionb(hop[7]),
+  questionb(hop[8]),
+  questionb(hop[9]),
+  questionb(hop[10])
+  )
+hop.up1
+```
+
+ d. *Now use your function to perform a vectorized calculation of the equation on `hop` and store this as `hop.up2`.*
+ 
+```{r, include=TRUE}
+hop.up2 <- questionb(hop)
+hop.up2
+```
+
+ e.  *Last, use `all.equal()` to test whether or not `hop.up1` and `hop.up2` are the same. (They should be!)*
+ 
+```{r, include=TRUE}
+all.equal(hop.up1, hop.up2)
+```
+
+### Question 2
+
+*Make a function that reports the data in `state.x77` (in `data("state")`) for a specific state defined by the user.*
+
+```{r, include=TRUE}
+data("state")
+
+whatstate <- function(x){
+  a <- state.x77[x, ]
+  return(a)
+}
+
+whatstate("Washington")
+
+```
