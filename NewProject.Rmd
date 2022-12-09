@@ -12,3 +12,4 @@ This is my practice notebook
 plot(mtcars$mpg, mtcars$wt)
 
 ```
+Wow R is so much fun!
